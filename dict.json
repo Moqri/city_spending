@@ -12,7 +12,6 @@
       "columns":{  
          "year":"fiscal_year",
          "item":"account_descr",
-         "amount":"monetary_amount"
-      }
+         "amount":"monetary_amount"      }
    }
 }

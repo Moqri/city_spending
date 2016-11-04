@@ -2,7 +2,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <script>
-  var city = parse('city')
+  var city_param = parse('city')
+  var year_param = parse('year')
   var city_metadata
   var url
   var columns
@@ -11,26 +12,28 @@
       url: "dict.json",
       type: "GET"
       }).done(function(data) {
-        city_metadata = data[city]
+        city_metadata = data[city_param]
         url = city_metadata.url
         columns = city_metadata.columns
         amount = columns.amount
+        year = columns.year
         columns = $.map(columns, function(el) { return el }).join(',') 
+        var dataObj = {
+          "$limit" : 10,
+          "$order" : amount+" DESC",
+          "$$app_token" : "",
+          "$select" : columns}
+          dataObj[year]=year_param
+
         $.ajax({
           url: url,
           type: "GET",
-          data: {
-            "$limit" : 10,
-            "$order" : amount+" DESC",
-            "$$app_token" : "",
-            "$select" : columns
-          }
+          data: dataObj
           }).done(function(data) {
-            console.log(data);
+            console.log(data[0]); 
           });
       });
   });
-
 
   function parse(val) {
       var result ,
