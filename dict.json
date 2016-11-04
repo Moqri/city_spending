@@ -1,0 +1,18 @@
+{  
+   "austin":{  
+      "url":"https://data.austintexas.gov/resource/yifk-x774.json",
+      "columns":{  
+         "year":"fy_dc",
+         "item":"actg_ln_dscr",
+         "amount":"amount"
+      }
+   },
+   "boston":{  
+      "url":"https://data.cityofboston.gov/resource/gd7m-xsim.json",
+      "columns":{  
+         "year":"fiscal_year",
+         "item":"account_descr",
+         "amount":"monetary_amount"
+      }
+   }
+}
