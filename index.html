@@ -1,0 +1,15 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<script>
+$.ajax({
+    url: "https://data.austintexas.gov/resource/yifk-x774.json",
+    type: "GET",
+    data: {
+      "$limit" : 10,
+      "$$app_token" : ""
+    }
+}).done(function(data) {
+  console.log(data[0]);
+});
+</script>
