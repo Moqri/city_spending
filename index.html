@@ -11,11 +11,12 @@
   var issues
 
   $(document).ready(function() {
+    console.log('reading dictionary'); 
     $.ajax({
       url: "dict.json",
       type: "GET"
       }).done(function(data) {
-
+        console.log('preparing query'); 
         city_metadata = data[city_param]
         url = city_metadata.url
         columns = city_metadata.columns
@@ -39,8 +40,8 @@
             dataObj["$where"] = date + " like '%" + year_param +"'"
           }
         }
-
-
+        
+        console.log('getting data'); 
         $.ajax({
           url: url,
           type: "GET",

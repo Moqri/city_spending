@@ -31,5 +31,49 @@
       "issues":{
       	"date":"text"
       }
-   }
+   },
+   "lasvegas":{  
+      "url":"https://opendata.lasvegasnevada.gov/resource/p5zs-kxmd.json",
+      "columns":{  
+         "date":"transaction_date",
+         "department":"department",
+         "item":"vendor",
+         "amount":"transaction_amount"
+      }
+   },
+   "dallas":{  
+      "url":"https://www.dallasopendata.com/resource/xbvr-9fk4.json",
+      "columns":{  
+         "date":"run_date",
+         "item":"vendor_name",
+         "amount":"check_total"
+      }
+   },
+   "montgomery":{  
+      "url":"https://data.montgomerycountymd.gov/resource/gfkz-9tzi.json",
+      "columns":{  
+         "date":"payment_date",
+         "department":"department",
+         "item":"description",
+         "amount":"amount"
+      }
+   },
+   "iowa":{  
+      "url":"https://data.iowa.gov/resource/9sag-ywd8.json",
+      "columns":{  
+         "date":"payment_date",
+         "department":"department",
+         "item":"description",
+         "amount":"amount"
+      }
+   },
+   "connecticut":{  
+      "url":"https://data.ct.gov/resource/65fd-xsu6.json",
+      "columns":{  
+         "date":"payment_date",
+         "department":"department",
+         "item":"vendor",
+         "amount":"amount"
+      }
+   }        
 }		
