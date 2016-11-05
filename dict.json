@@ -4,7 +4,10 @@
       "columns":{  
          "date":"chk_eft_iss_dt",
          "department":"dept_nm",
-         "item":"actg_ln_dscr",
+         "program_fund":"fund_nm",
+         "category":"div_nm",
+         "description":"actg_ln_dscr",
+         "vendor":"lgl_nm",
          "amount":"amount"
       },
       "issues":{
@@ -16,8 +19,22 @@
       "columns":{  
          "date":"entered",
          "department":"dept_name",
-         "item":"account_descr",
+         "program_fund":"_6_digit_org_name",
+         "description":"account_descr",
+         "vendor":"vendor_name",
          "amount":"monetary_amount"
+      }
+   },
+   "chattanooga":{  
+      "url":"https://data.chattlibrary.org/resource/hzjf-u3iz.json",
+      "columns":{  
+         "date":"invoice_date",
+         "department":"department",
+         "program_fund":"program",
+         "category":"expense_category",
+         "description":"description",
+         "vendor":"vendor_name",
+         "amount":"amount"
       }
    },
    "chicago":{  
@@ -25,11 +42,23 @@
       "columns":{  
          "date":"check_date",
          "department":"department_name",
-         "item":"vendor_name",
+         "vendor":"vendor_name",
          "amount":"amount"
       },
       "issues":{
-      	"date":"text"
+         "date":"text"
+      }
+   },
+   "culver":{  
+      "url":"https://data.culvercity.org/resource/m7n9-gnk7.json",
+      "columns":{  
+         "date":"transactiondate",
+         "department":"department_name",
+         "program_fund":"fund_name",
+         "category":"organization_name",
+         "description":"expendituredesc",
+         "vendor":"vendor_name",
+         "amount":"dollar_amount"
       }
    },
    "lasvegas":{  
