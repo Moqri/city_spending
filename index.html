@@ -2,35 +2,51 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <script>
+
   var city_param = parse('city')
   var year_param = parse('year')
   var city_metadata
   var url
   var columns
+  var issues
+
   $(document).ready(function() {
     $.ajax({
       url: "dict.json",
       type: "GET"
       }).done(function(data) {
+
         city_metadata = data[city_param]
         url = city_metadata.url
         columns = city_metadata.columns
         amount = columns.amount
-        year = columns.year
+        date = columns.date
         columns = $.map(columns, function(el) { return el }).join(',') 
+        issues = city_metadata.issues
+
         var dataObj = {
           "$limit" : 10,
-          "$order" : amount+" DESC",
+          "$order" : date+" DESC",
           "$$app_token" : "",
-          "$select" : columns}
-          dataObj[year]=year_param
+          "$select" : "date_trunc_y("+date+") as year," + columns,
+          "$where" : " year == \"" + year_param +"\""
+        }
+        if (issues){
+          if (issues.date=="two_digits"){
+            dataObj["$where"] = " year == \"" + year_param.slice(-2) +"\""
+          } else if (issues.date=="text") {
+            dataObj["$select"] = columns
+            dataObj["$where"] = date + " like '%" + year_param +"'"
+          }
+        }
+
 
         $.ajax({
           url: url,
           type: "GET",
           data: dataObj
           }).done(function(data) {
-            console.log(data[0]); 
+            console.log(data); 
           });
       });
   });

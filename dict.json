@@ -2,16 +2,34 @@
    "austin":{  
       "url":"https://data.austintexas.gov/resource/yifk-x774.json",
       "columns":{  
-         "year":"fy_dc",
+         "date":"chk_eft_iss_dt",
+         "department":"dept_nm",
          "item":"actg_ln_dscr",
          "amount":"amount"
+      },
+      "issues":{
+      	"date":"two_digits"
       }
    },
    "boston":{  
       "url":"https://data.cityofboston.gov/resource/gd7m-xsim.json",
       "columns":{  
-         "year":"fiscal_year",
+         "date":"entered",
+         "department":"dept_name",
          "item":"account_descr",
-         "amount":"monetary_amount"      }
+         "amount":"monetary_amount"
+      }
+   },
+   "chicago":{  
+      "url":"https://data.cityofchicago.org/resource/rjgc-4h37.json",
+      "columns":{  
+         "date":"check_date",
+         "department":"department_name",
+         "item":"vendor_name",
+         "amount":"amount"
+      },
+      "issues":{
+      	"date":"text"
+      }
    }
-}
+}		
